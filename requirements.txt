@@ -1,2 +1,7 @@
 Flask
 Gunicorn
+pandas
+numpy
+openai
+tiktoken
+pymongo
