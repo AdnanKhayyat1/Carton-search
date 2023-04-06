@@ -1,7 +1,0 @@
-id, title, type, text, childOf
-1, my first page, page,,
-2, my second page, page,,
-3, my first block, block, hi my name is adnan, 1
-4, my second block, block, how are you, 1
-5, my third block, block, to do list, 1
-6, my fourth block, block, hi hahaha, 2
