@@ -89,7 +89,8 @@ class SearchEngine:
         cells = cells_coll.find({})
         for c in cells:
             identifier = str(c['_id'])
-            if 'data' in c:
+            if 'data' in c and 'blocks' in c['data']:
+                
                 blocks = c['data']['blocks']
                 for block in blocks:
                     context.append([identifier, block['type'], self.parse_block_data(
