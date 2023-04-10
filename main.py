@@ -10,9 +10,10 @@ app = Flask(__name__)
 @app.route('/search/', methods=['GET'])
 def search():
     prompt = request.args.get('prompt')
+    userID = request.args.get('userID')
     if prompt:
         eng = SearchEngine(openai_key=os.getenv('OPENAI_API_KEY'))
-        df = eng.parse_data(uri=os.getenv('ATLAS_URI'))
+        df = eng.parse_data(uri=os.getenv('ATLAS_URI'), user_id = userID)
         document_embeddings = eng.compute_doc_embeddings(df)
         answerData = eng.answer_query_with_context(
             prompt, df, document_embeddings)

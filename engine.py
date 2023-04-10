@@ -58,7 +58,7 @@ class SearchEngine:
             idx: self.get_embedding(r.content) for idx, r in df.iterrows()
         }
 
-    def parse_data(self, uri):
+    def parse_data(self, uri, user_id):
         try:
             self.mongoclient = pymongo.MongoClient(uri)
             self.db = self.mongoclient["Carton"]
@@ -69,7 +69,7 @@ class SearchEngine:
         context = []
 
         # TODO: Add user ID filter
-        objects = obj_coll.find({})
+        objects = obj_coll.find({'userID': user_id})
 
         for o in objects:
             identifier = str(o['_id'])
